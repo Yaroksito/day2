@@ -1,0 +1,22 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "ldap-sync",
+    "namespace": "ldap-sync",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "ldap-sync",
+        "namespace": "ldap-sync",
+        "creationTimestamp": null
+      }
+    },
+    "encryptedData": {
+      "sync.yaml": "AgBOeGNJcXKMM1S8xntlEDh0SzmRBS8PhR2Efp4pTMcr8zGW41wW0EjB9ZJiBntfszmlXqA3Z1qgydLWBmy7ZnVgba5l4DFDYNjuOv7kbE+OgBRJrr4K8pykFC5uXr6FAqfZS1eO3DH8clmSLeICYi8LTW7ErshnqPUBmaD3wIoBYrkiJBRUTv1cs05NUVJJ/Jvxelw9sbamFpSp/LahIYjPDLUQOWlNqgDH/sp2PNyOLOcfG0vd4wpXZv+7I3x2cDoWylyF4FL3eCCfE3nZnThNw6RRL9xRszgtAce+dFxJiT+NW5IAngDfAYjN8jocWon/c8dkpTAwMOafjX+93sZ3gExSB428tjEVm9DSiYNi+T5OiBwi/99Fgt6H3U3yS+Ocf6b28hEYysUHzAaDJKGO+3alH1j+Qffbr8fDzle2u9JAEpFPN8i+6xETpvk4haSWCVvoxwRJcATZ5C+Dyh+ZOmT5EwV4rZ5jLFeQOGeszuerdoh/+7qkzJObTfXp4XACPin1cCKZv6JIaDVpz8MFmtZ4I1qMj/mA8auK2knwqOFKuskJD5hT1bEG5kO3wYbEEa0W1jYtVtSCmqCz2F9gKA8qh0HZMID2fOzyk5qHVFuSLa2ut7jU5BL12RPFwCrYrMLTRSwnsDCXnDFgTQTlAgDNUDHpejdzkrtVhxFZrMj07ADpYsbCsodDR0k9mnoB0VHS5/G+/27pmTjjzUptBzjy6GKYw4OLtJaxFYn+aAtDK5j58ztoUHiDLyBxDp0+3Glw5nIvdu5L6Sp/Ojho9OxVPKLlUnwbH95zxdvPw2bwa5H4t7Rx73xhoPaHqTFEoZbDFXKKiQ16NLCUB1+Gs+NMr/KHSxD2MjiT/kndXzRXQ0N/s+bao5GmT/ddhEwvV6ncSQx15WQrfUEJIXz5oxlj9EBwxbHIFtWtSHgp5sgvGbVWU6lP5Rl8/WWFpyyPPGyQNK0iLKBCBCIErEHAxJS8uNh6GSnUR98j9fk8enp55OPjD8FqALsPHe4Ofh7eallKsw3D4JKWGu2IwM8T9HLEqQu/N1x2n/hk4BDbPxzH6ktfl2ek/amKnltXIyoAQhYYwu4bZTDvNywK5FmTi62lI+hcjJUeO8HHiRA4gy7jmZvudHYSOeYzLizKLHjg+vZGnbBq4Ub8EEYszeYjmn/+1TK6k1RWo8W2ccCxm0SZLoCCi/BFN/mdVAB0FjXlnXIZqj5AWp1Aqdfo0ACr25KJtGFKJgxZE0BlNOZzCs9nEvBggQwvu++8yaeXUGDenL8Ldu4H5AmFwwVV+fi4cxyaK4Rf4GoOnIKWoOkJCq9koupN3PwS56e13MqfHr1ds+nOsoCdyjcx9sEasQz4tgFbaCLCcK1c5InayQKS1aUWi0sIh/kVPc2MG0786xur6D4Njk5sSv8pv96Gs+MxadYs+Xx3JmjqB5B1Y/Drh2DFfJAV9lkVr+2Z2TRQsThLZwjsPkkVX2+WaI0sMIgoI5nsrfAuQmukC+uwjn4sh3qxs0SMwr57G84JnxcZ6JBR0hBwBdjX7G6zFAmkDf3m6RX/r8M1Pu8RHzjUtzPKybrCXKTeu1FnbRo/3RHXLuV/4wFcp03j/lpTwBG+W5BG0hXhd+eQjvEAFm9/hhco899QCmDpqcpc5/u9cYtfutRfO5kIqfcFywWhg1Fcr9OlOveasZVKEhlLQtbDpBb8bD7KXJXjorpw5IU2fhXsPB8I8GdjFvl9xg=="
+    }
+  }
+}
+

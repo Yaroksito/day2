@@ -1,0 +1,12 @@
+apiVersion: v1
+imagePullSecrets:
+- name: ocphelix-dockercfg-8fk62
+kind: ServiceAccount
+metadata:
+  name: ocphelix
+  namespace: helix
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+secrets:
+- name: ocphelix
+- name: ocphelix-dockercfg-8fk62

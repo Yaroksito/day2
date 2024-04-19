@@ -1,0 +1,5 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ingresscontrollers.operator.openshift-qa.yaml
+  - apps-cert.ocplanqa.yaml

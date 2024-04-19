@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- rolebinding.yaml
+- cluster-role-binding-etcd-bkp.yaml
+- cluster-role-etcd-bkp.yaml
+- sa-etcd-bkp.yaml
+- cronjob-etcd-bkp.yaml

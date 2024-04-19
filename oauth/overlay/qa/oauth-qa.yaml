@@ -1,0 +1,34 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+spec:
+  identityProviders:
+  - ldap:
+      attributes:
+        email:
+        - mail
+        id:
+        - dn
+        name:
+        - cn
+        preferredUsername:
+        - sAMAccountName
+      bindDN: CN=ocp-qa-ldap,OU=OpenShiftNP,OU=Sensitive Accounts,OU=Non-Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+      bindPassword:
+        name: ldap-secret
+      ca:
+        name: ca-config-map
+      insecure: false
+      url: ldaps://mac.org.il:636/dc=mac,dc=org,dc=il?sAMAccountName?sub?(&(objectClass=user)(memberOf=CN=openshiftusers-qa,OU=qa,OU=Openshift,OU=Security,OU=Groups,OU=Global
+        Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il)(!userAccountControl:1.2.840.113556.1.4.803:=2))
+    mappingMethod: claim
+    name: ldapidp
+    type: LDAP
+  - htpasswd:
+      fileData:
+        name: htpass-secret
+    mappingMethod: claim
+    name: htpasswd
+    type: HTPasswd
+

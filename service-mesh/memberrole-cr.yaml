@@ -1,0 +1,13 @@
+apiVersion: maistra.io/v1
+kind: ServiceMeshMemberRoll
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  finalizers:
+  - maistra.io/istio-operator
+  name: default
+  namespace: istio-system
+spec:
+  members:
+  - ol-pharmacy-operative-item-catalog-d
+

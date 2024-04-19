@@ -1,0 +1,58 @@
+apiVersion: platform.stackrox.io/v1alpha1
+kind: Central
+metadata:
+  name: stackrox-central-services
+  namespace: stackrox
+  finalizers:
+    - uninstall-helm-release
+spec:
+  central:
+    adminPasswordSecret:
+      name: stackrox-admin
+    db:
+      isEnabled: Default
+      persistence:
+        persistentVolumeClaim:
+          claimName: central-db
+          size: 30Gi
+          storageClassName: ocs-storagecluster-cephfs
+    exposure:
+      loadBalancer:
+        enabled: true
+        port: 443
+      nodePort:
+        enabled: false
+      route:
+        enabled: true
+    monitoring:
+      exposeEndpoint: Enabled
+    persistence:
+      persistentVolumeClaim:
+        claimName: stackrox-db
+        size: 50Gi
+        storageClassName: ocs-storagecluster-cephfs
+    telemetry:
+      enabled: true
+  egress:
+    connectivityPolicy: Offline
+  monitoring:
+    openshift:
+      enabled: true
+  scanner:
+    analyzer:
+      scaling:
+        autoScaling: Enabled
+        maxReplicas: 5
+        minReplicas: 2
+        replicas: 3
+      tolerations:
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/infra
+          value: reserved
+        - effect: NoExecute
+          key: node-role.kubernetes.io/infra
+          value: reserved
+    monitoring:
+      exposeEndpoint: Enabled
+    scannerComponent: Enabled
+ 

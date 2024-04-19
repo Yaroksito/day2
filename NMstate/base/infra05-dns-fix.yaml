@@ -1,0 +1,18 @@
+apiVersion: nmstate.io/v1 
+kind: NodeNetworkConfigurationPolicy 
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  name: infra05-dns-fix 
+spec: 
+  nodeSelector: 
+    kubernetes.io/hostname: ocp-t-inf05.ocplantest.mac.org.il
+  desiredState:
+    dns-resolver:
+      config:
+        search:
+        - ocplantest.mac.org.il
+        - mac.org.il
+        server:
+        - 10.74.1.201
+        - 10.74.1.204

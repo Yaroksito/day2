@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+  - ../../base
+secretGenerator:
+  - name: logging-loki-odf
+    namespace: openshift-logging
+    literals:
+    - access_key_id=cG10WWo0bDJWWW9Zb3NReW84ZDY=
+    - access_key_secret=NEw5RHp5OHJvUG1oaDA3b2UvLzdjZFN6bXdCQmIyLzdOUm5nNlN2aQ==
+    - bucketnames=bG9raS1idWNrZXQtb2RmLTdlMzQ1NmMwLWNlNWEtNGVmZS04YjViLTBmNGM4M2QzYjlkYw==
+    - endpoint=aHR0cHM6Ly9zMy5vcGVuc2hpZnQtc3RvcmFnZS5zdmM6NDQz
+generatorOptions:
+  disableNameSuffixHash: true

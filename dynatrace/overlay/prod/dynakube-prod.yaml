@@ -1,0 +1,24 @@
+apiVersion: dynatrace.com/v1beta1
+kind: DynaKube
+metadata:
+  name: maccabiopenshift
+  namespace: dynatrace
+spec:
+  activeGate:
+    capabilities:
+    - routing
+    - kubernetes-monitoring
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 1.5Gi
+      requests:
+        cpu: 500m
+        memory: 512Mi
+  apiUrl: https://dynatrace.mac.org.il/e/62422652-0e8a-44f7-8c77-defe8a0c3621/api
+  oneAgent:
+    classicFullStack:
+      env:
+      - name: ONEAGENT_ENABLE_VOLUME_STORAGE
+        value: "false"
+  skipCertCheck: true

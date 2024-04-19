@@ -1,0 +1,26 @@
+apiVersion: loki.grafana.com/v1
+kind: LokiStack
+metadata:
+  name: logging-loki
+  namespace: openshift-logging
+spec:
+  limits:
+    global:
+      retention:
+        days: 1
+  size: 1x.extra-small
+  storage:
+    secret:
+      name: logging-loki-odf-dev
+      type: s3
+      # insecureSkipTLSVerify: "true"
+    tls:
+      caName: openshift-service-ca.crt
+      # tls_skip_verify_insecure: true
+    schemas:
+    - version: v12
+      effectiveDate: "2022-06-01"
+  storageClassName: ocs-storagecluster-ceph-rbd
+  tenants:
+    mode: openshift-logging
+

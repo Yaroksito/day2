@@ -1,0 +1,12 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+  name: mtc-operator
+  namespace: openshift-migration
+spec:
+  channel: release-v1.8
+  installPlanApproval: Automatic
+  name: mtc-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: mtc-operator.v1.7.10
+

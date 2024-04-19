@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+ - ldap-cj-cluster-role-binding.yaml
+ - ldap-cj-cluster-role.yaml
+ - ldap-cj-sa.yaml
+ - ldap-cj.yaml
+ - ldap-cj-whitelist-cm.yaml
+ - ldap-sync-sealed.yaml

@@ -1,0 +1,41 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogForwarder
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  name: instance 
+  namespace: openshift-logging 
+spec:
+  outputs:
+  - kafka: 
+    name: kafka-remote
+    secret:
+      name: kafka-secret
+    type: kafka
+    url: tls://kfk-brkrs-dev:9095/openshift_application-log
+  inputs: 
+  - name: openlegacy-logs 
+    application:
+      namespaces:
+      - ol-patients-remark-definition
+      - ol-pharmacy-operative-item-catalog-d
+      - openlegacy
+  pipelines:
+  #- inputRefs:
+  #  - application
+  #  name: kafka-applogs
+  #  outputRefs:
+  #  - kafka-remote
+  - inputRefs:
+    - openlegacy-logs 
+    name: openlegacy-logs 
+    outputRefs:
+    - kafka-remote
+    - default
+  - inputRefs:
+    - application
+    - audit
+    - infrastructure
+    name: all-logs
+    outputRefs:
+    - default

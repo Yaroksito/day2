@@ -1,0 +1,43 @@
+kind: CronJob
+apiVersion: batch/v1
+metadata:
+  name: ldap-group-syncer
+  namespace: ldap-sync
+spec:
+  schedule: "0 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      ttlSecondsAfterFinished: 1800
+      template:
+        spec:
+          containers:
+            - name: ldap-group-sync
+              image: docker.jfrog-art-int/openshift/ose-cli:latest
+              command:
+                - "/bin/bash"
+                - "-c"
+                - "oc adm groups sync --whitelist=/etc/whitelist/whitelist.txt --sync-config=/etc/config/sync.yaml --confirm"
+              volumeMounts:
+                - mountPath: "/etc/config"
+                  name: "ldap-sync-volume"
+                - mountPath: "/etc/ldap-ca"
+                  name: "ldap-ca"
+                - mountPath: "/etc/whitelist"
+                  name:  "ldap-sync-volume-whitelist"
+          volumes:
+            - name: "ldap-sync-volume"
+              secret:
+               secretName: "ldap-config"
+            - name: "ldap-ca"
+              configMap:
+                name: "ca-config-map"
+            - name: "ldap-sync-volume-whitelist"
+              configMap:
+                name: "ldap-group-syncer-whitelist"
+          restartPolicy: "Never"
+          terminationGracePeriodSeconds: 30
+          activeDeadlineSeconds: 500
+          dnsPolicy: "ClusterFirst"
+          serviceAccountName: "ldap-group-syncer"

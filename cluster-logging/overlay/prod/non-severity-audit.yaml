@@ -1,0 +1,33 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogForwarder
+metadata:
+  name: instance
+  namespace: openshift-logging
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  outputs:
+   - name: rsyslog-audit
+     type: syslog
+     syslog:
+     url: 'tcp://10.77.4.13:514'
+   - name: rsyslog-west
+     type: syslog
+     syslog:
+     url: 'udp://xplg-dp1.mac.org.il:1468'
+  pipelines:
+   - name: syslog-audit
+     inputRefs:
+     - audit
+     outputRefs:
+     - rsyslog-audit
+     - default
+   - name: syslog-west
+     inputRefs:
+     - application
+     - infrastructure
+     outputRefs:
+     - rsyslog-west
+     - default
+     labels:
+       syslog: "west"

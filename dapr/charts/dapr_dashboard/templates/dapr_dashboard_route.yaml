@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: dapr-dashboard
+  namespace: dapr-system
+spec:
+  #host: dapr-dashboard.apps.ocplantest.mac.org.il
+  port:
+    targetPort: 8080
+  tls:
+    insecureEdgeTerminationPolicy: None
+    termination: edge
+  to:
+    kind: Service
+    name: dapr-dashboard
+    #weight: 100
+  wildcardPolicy: None

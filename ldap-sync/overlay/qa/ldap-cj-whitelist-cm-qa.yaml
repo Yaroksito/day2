@@ -1,0 +1,19 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: ldap-group-syncer-whitelist
+  namespace: ldap-sync
+  labels:
+    app: cronjob-ldap-group-sync
+data:
+  whitelist.txt: |
+    CN=ocp-qa-advdev,OU=qa,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+    CN=ocp-qa-admins,OU=qa,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+    CN=ocp-qa-monitor,OU=qa,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+    CN=ocp-qa-openlegacy,OU=qa,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+    CN=ocp-qa-online,OU=qa,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+    CN=ocp-qa-webdevop,OU=qa,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+    CN=ocp-qa-wotch,OU=qa,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+    CN=ocp-AdvDevTeam,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+    CN=ocp-WebDigital,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+    CN=ocp-dba,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il

@@ -1,0 +1,19 @@
+apiVersion: operator.openshift.io/v1
+kind: KubeDescheduler
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  name: cluster
+  namespace: openshift-kube-descheduler-operator
+spec:
+  deschedulingIntervalSeconds: 3600
+  logLevel: Normal
+  managementState: Managed
+  operatorLogLevel: Normal
+  mode: Automatic
+  profileCustomizations:
+    podLifetime: 48h
+  profiles:
+  - AffinityAndTaints
+  - TopologyAndDuplicates
+  - LifecycleAndUtilization

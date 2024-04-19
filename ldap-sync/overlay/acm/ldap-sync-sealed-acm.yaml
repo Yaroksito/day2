@@ -1,0 +1,21 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "ldap-sync",
+    "namespace": "ldap-sync",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "ldap-sync",
+        "namespace": "ldap-sync",
+        "creationTimestamp": null
+      }
+    },
+    "encryptedData": {
+      "sync.yaml": "a2luZDogTERBUFN5bmNDb25maWcKYXBpVmVyc2lvbjogdjEKdXJsOiBsZGFwczovL21hYy5vcmcuaWw6NjM2L2RjPW1hYyxkYz1vcmcsZGM9aWw/c0FNQWNjb3VudE5hbWUKYmluZEROOiBDTj1vY3AtdC1sZGFwLE9VPU9wZW5TaGlmdE5QLE9VPVNlbnNpdGl2ZSBBY2NvdW50cyxPVT1Ob24tUHJvZCBFbnZpcm9ubWVudHMsT1U9TWFjY2FiaS1Sb290LERDPW1hYyxEQz1vcmcsREM9aWwKaW5zZWN1cmU6IGZhbHNlCmJpbmRQYXNzd29yZDogU2hpZnRPcGVuMTk5MDAwMApjYTogL2V0Yy9sZGFwLWNhL2NhLmNydAphdWdtZW50ZWRBY3RpdmVEaXJlY3Rvcnk6CiAgICBncm91cHNRdWVyeToKICAgICAgYmFzZUROOiAiREM9bWFjLERDPW9yZyxEQz1pbCIKICAgICAgc2NvcGU6IHN1YgogICAgICBkZXJlZkFsaWFzZXM6IGFsd2F5cwogICAgICBwYWdlU2l6ZTogMTAwMAogICAgZ3JvdXBVSURBdHRyaWJ1dGU6IGRuCiAgICBncm91cE5hbWVBdHRyaWJ1dGVzOiBbIGNuIF0KICAgIHVzZXJzUXVlcnk6CiAgICAgIGJhc2VETjogIkRDPW1hYyxEQz1vcmcsREM9aWwiCiAgICAgIHNjb3BlOiBzdWIKICAgICAgZGVyZWZBbGlhc2VzOiBhbHdheXMKICAgICAgZmlsdGVyOiAob2JqZWN0Y2xhc3M9dXNlcikKICAgICAgcGFnZVNpemU6IDEwMDAKICAgIHVzZXJOYW1lQXR0cmlidXRlczogWyBzQU1BY2NvdW50TmFtZSBdCiAgICBncm91cE1lbWJlcnNoaXBBdHRyaWJ1dGVzOiBbICJtZW1iZXJPZjoxLjIuODQwLjExMzU1Ni4xLjQuMTk0MToiIF0="
+    }
+  }
+}

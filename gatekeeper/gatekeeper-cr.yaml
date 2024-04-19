@@ -1,0 +1,10 @@
+apiVersion: operator.gatekeeper.sh/v1alpha1
+kind: Gatekeeper
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  name: gatekeeper
+spec:
+  audit:
+    replicas: 2
+  validatingWebhook: Enabled

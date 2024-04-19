@@ -1,0 +1,22 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: wildcard-cert
+  namespace: openshift-ingress
+spec:
+  data:
+  - remoteRef:
+      key: openshift-ingress/wildcard-cert
+      property: tls.crt
+    secretKey: tls.crt
+  - remoteRef:
+      key: openshift-ingress/wildcard-cert
+      property: tls.key
+    secretKey: tls.key
+  refreshInterval: 1m
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: vault
+  target:
+    name: wildcart-cert-secret
+    

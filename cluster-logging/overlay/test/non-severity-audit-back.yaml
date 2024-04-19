@@ -1,0 +1,37 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogForwarder
+metadata:
+  name: instance
+  namespace: openshift-logging
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  outputs:
+  - name: app-log-test
+    type: kafka
+    secret: 
+      name: kafka-krk
+    kafka:
+      brokers:
+        - https://kfk-brkrs-dev:9095/
+      topic: conectivity_test
+  inputs: 
+    - name: kafka-log
+      application:
+  pipelines:
+   - name: kafka-log-infra
+     inputRefs:
+     - audit
+     outputRefs:
+     - rsyslog-audit
+     - default
+   - name: syslog-west
+     inputRefs:
+     - application
+     - infrastructure
+     outputRefs:
+     - rsyslog-west
+     - default
+     labels:
+       syslog: "west"
+

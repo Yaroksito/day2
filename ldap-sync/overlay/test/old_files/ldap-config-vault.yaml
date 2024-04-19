@@ -1,0 +1,17 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: ldap-config
+  namespace: ldap-sync
+spec:
+  data:
+  - remoteRef:
+      key: ldap-sync/ldap-config
+      property: sync.yaml
+    secretKey: sync.yaml
+  refreshInterval: 1m
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: vault
+  target:
+    name: ldap-config

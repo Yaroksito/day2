@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  name: pharmacy-microservice
+spec:
+        #  host: "*.ol-pharmacy-operative-item-catalog-d.svc.cluster.local"
+  host: app-svc
+  trafficPolicy:
+    loadBalancer:
+      simple: LEAST_REQUEST
+  subsets:
+  - name: pharmacy-microservice-test
+    labels:
+      app: pharmacy-microservice
+    trafficPolicy:
+      loadBalancer:
+        simple: LEAST_REQUEST

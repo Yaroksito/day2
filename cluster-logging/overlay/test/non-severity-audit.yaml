@@ -1,0 +1,27 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogForwarder
+metadata:
+  name: instance
+  namespace: openshift-logging
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  outputs:
+  - kafka:
+      brokers:
+      - https://kfk-brkrs-dev:9095/
+      topic: test-conectivity
+    name: kafka-remote
+    secret:
+      name: kafka-remote
+    type: kafka
+  pipelines:
+  - inputRefs:
+    - application
+    - audit
+    - infrastructure
+    name: kafka-all
+    outputRefs:
+    - default
+    - kafka-remote
+

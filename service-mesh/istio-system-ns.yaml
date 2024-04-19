@@ -1,0 +1,12 @@
+apiVersion: project.openshift.io/v1
+kind: Project
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  labels:
+    kiali.io/member-of: istio-system
+    argocd.argoproj.io/managed-by: infra-gitops
+    kubernetes.io/metadata.name: istio-system
+    maistra.io/member-of: istio-system
+  name: istio-system
+

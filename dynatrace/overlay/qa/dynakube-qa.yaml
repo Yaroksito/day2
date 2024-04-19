@@ -1,0 +1,27 @@
+apiVersion: dynatrace.com/v1beta1
+kind: DynaKube
+metadata:
+  name: maccabi-openshift-qa
+  namespace: dynatrace
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  activeGate:
+    capabilities:
+    - routing
+    - kubernetes-monitoring
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 1.5Gi
+      requests:
+        cpu: 500m
+        memory: 512Mi
+  apiUrl: https://dynatrace.mac.org.il/e/d24c59aa-80f7-4342-845c-b4eead1bd6aa/api
+  oneAgent:
+    classicFullStack:
+      env:
+      - name: ONEAGENT_ENABLE_VOLUME_STORAGE
+        value: "false"
+  skipCertCheck: true
+ 

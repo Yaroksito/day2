@@ -1,0 +1,5 @@
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: csi-smb-node-sa
+  namespace: kube-system

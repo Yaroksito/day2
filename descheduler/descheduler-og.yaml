@@ -1,0 +1,12 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: openshift-kube-descheduler-operator-62b7c
+  namespace: openshift-kube-descheduler-operator
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  targetNamespaces:
+  - openshift-kube-descheduler-operator
+  upgradeStrategy: Default
+

@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  access_key_id: ZXNjQ29jUFNJMDB4bFFrdW1SSFA=
+  access_key_secret: Tm1uL2RUblV2ZVZHZUw1QlUyQmtDcTZDRFBPb1gvVzVXWHgrVTRjZQ==
+  bucketnames: bG9raS1idWNrZXQtb2RmLWM0ZDRmMGRjLTkwMjYtNDNlYi04YzJiLWNkNjY5NTg1YzE2NA==
+  endpoint: aHR0cHM6Ly9zMy5vcGVuc2hpZnQtc3RvcmFnZS5zdmM6NDQz
+kind: Secret
+metadata:
+  name: logging-loki-odf
+  namespace: openshift-logging
+type: Opaque
+

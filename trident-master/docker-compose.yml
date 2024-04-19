@@ -1,0 +1,20 @@
+version: '2'
+services:
+  trident:
+    image: netapp/trident
+    ports:
+     - "${PORT}:${PORT}"
+    volumes:
+     - /var/run/docker/plugins:/var/run/docker/plugins
+     - /dev:/dev
+    privileged: true
+    tty: true
+    command: /trident_orchestrator -address "" -port "${PORT}" -etcd_v2 http://etcd:2379 -k8s_api_server "${K8S}"
+    depends_on:
+     - etcd  
+  etcd:
+    image: quay.io/coreos/etcd:v3.1.5
+    volumes:
+     - "${ETCD_DIR}:/var/etcd/data"
+    command: /usr/local/bin/etcd -name etcd1 -advertise-client-urls http://etcd:2379,http://localhost:2379 -listen-client-urls http://etcd:2379,http://localhost:2379 -data-dir /var/etcd/data
+

@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+- ../../base
+patchesStrategicMerge:
+- loki-sub-prod.yaml
+- loki-cr-prod.yaml
+#- clusterlogforwarder.yaml
+- non-severity-audit.yaml
+#resources:  
+#- non-severity-audit.yaml
+secretGenerator:
+  - name: logging-loki-odf
+    namespace: openshift-logging
+    literals:
+    - access_key_id=3uZ1z5diJXshSCvq1q2k
+    - access_key_secret=R7F+JBrBpzxpjl95kIxvuJhOIjVuEFApSCebQ7Xr
+    - bucketnames=loki-bucket-odf-82e88819-49a0-4c0f-bc3c-3362ea71f156
+    - endpoint=https://s3.openshift-storage.svc:443
+generatorOptions:
+  disableNameSuffixHash: true

@@ -1,0 +1,90 @@
+name: checks
+on:
+  pull_request:
+    branches:
+      - master
+      - stable/**
+  push:
+    branches:
+      - master
+      - stable/**
+permissions:
+  contents: read
+    # Optional: allow read access to pull request. Use with `only-new-issues` option.
+    # pull-requests: read
+jobs:
+  golangci:
+    name: linters
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+          check-latest: true
+      - uses: actions/checkout@v3
+      - name: golangci-lint
+        # Switch back to the official action after this bug is fixed: https://github.com/golangci/golangci-lint/issues/3107
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.54.1
+          $(go env GOPATH)/bin/golangci-lint run --out-format=github-actions --timeout=15m --verbose
+  unit:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+    runs-on: ${{matrix.os}}
+    name: unit tests ${{ matrix.os }}
+    steps:
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+          check-latest: true
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          # In order:
+          # * Module download cache
+          # * Build cache (Linux)
+          # * Build cache (Mac)
+          # * Build cache (Windows)
+          path: |
+            ~/go/pkg/mod
+            ~/.cache/go-build
+            ~/Library/Caches/go-build
+            ~\AppData\Local\go-build
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+      - if: runner.os == 'Windows'
+        name: Run the tests (on Windows)
+        run: |
+          Set-PSDebug -Trace 2
+          go version
+
+          mkdir ${{ runner.temp }}\${{ runner.os }}-coverage-binary.out
+          go test -v ./... -covermode=count -- -test.gocoverdir=${{ runner.temp }}\${{ runner.os }}-coverage-binary.out
+          go tool covdata textfmt -i=${{ runner.temp }}\${{ runner.os }}-coverage-binary.out -o ${{ runner.os }}-coverage.out
+      - if: runner.os != 'Windows'
+        name: Run the tests (not on Windows)
+        run: |
+          set -x
+          go version
+
+          echo mkdir ${{ runner.temp }}/${{ runner.os }}-coverage-binary.out
+          mkdir ${{ runner.temp }}/${{ runner.os }}-coverage-binary.out
+          go test -v ./... -covermode=count -test.gocoverdir=${{ runner.temp }}/${{ runner.os }}-coverage-binary.out
+          go tool covdata textfmt -i=${{ runner.temp }}/${{ runner.os }}-coverage-binary.out -o ${{ runner.os }}-coverage.out
+      - if: runner.os != 'Windows'
+        name: Prepare the artifact
+        run: |
+          go tool cover -html=${{ runner.os }}-coverage.out -o ${{ runner.os }}-coverage.html
+      - name: Get run details
+        run: |
+          echo "PR_Title=${{ github.event.pull_request.title }}"
+          echo "Run_Number=${{ github.run_number }}"
+          echo "PR_Number=${{ github.event.pull_request.number }}"
+      - if: runner.os != 'Windows'
+        name: Upload the artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: "coverage-report-${{ runner.os }}-${{ github.run_number }}.html"
+          path: ${{ runner.os }}-coverage.html

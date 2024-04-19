@@ -1,0 +1,17 @@
+apiVersion: logging.openshift.io/v1
+kind: ClusterLogForwarder
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  name: instance 
+  namespace: openshift-logging 
+spec:
+  outputs:
+  pipelines:
+  - inputRefs:
+    - application
+    - audit
+    - infrastructure
+    name: all-logs
+    outputRefs:
+    - default

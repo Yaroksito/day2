@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ocphelix
+  namespace: helix
+  annotations:
+    kubernetes.io/service-account.name: ocphelix
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+type: kubernetes.io/service-account-token
