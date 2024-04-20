@@ -12,7 +12,7 @@ spec:
    - name: rsyslog-west
      type: syslog
      syslog:
-     url: 'udp://xplg-dp1.mac.org.il:1468'
+     url: 'udp://xplg-dp1.oranization.domain:1468'
   pipelines:
    - name: syslog-audit
      inputRefs:

@@ -6,17 +6,17 @@ metadata:
 spec:
   admin_user: admin
   auto_upgrade: true
-  bundle_cacert_secret: ca-bundle-custom-certs-maccabi
+  bundle_cacert_secret: ca-bundle-custom-certs-
   create_preload_data: true
   extra_settings:
   - setting: AUTH_LDAP_SERVER_URI
-    value: '"ldaps://mac.org.il:636"'
+    value: '"ldaps://domain.org.il:636"'
   - setting: AUTH_LDAP_BIND_DN
-    value: '"CN=ocp-t-ldap,OU=OpenShiftNP,OU=Sensitive Accounts,OU=Non-Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il"'
+    value: '"CN=ocp-t-ldap,OU=OpenShiftNP,OU=Sensitive Accounts,OU=Non-Prod Environments,OU=Organization-Root,DC=domain,DC=org,DC=il"'
   - setting: AUTH_LDAP_USER_SEARCH
-    value: LDAPSearch( "DC=mac,DC=org,DC=il","SCOPE_SUBTREE","(sAMAccountName=%(user)s)",)
+    value: LDAPSearch( "DC=domain,DC=org,DC=il","SCOPE_SUBTREE","(sAMAccountName=%(user)s)",)
   - setting: AUTH_LDAP_GROUP_SEARCH
-    value: LDAPSearch("DC=mac,DC=org,DC=il","SCOPE_SUBTREE","(objectClass=group)",)
+    value: LDAPSearch("DC=domain,DC=org,DC=il","SCOPE_SUBTREE","(objectClass=group)",)
   - setting: AUTH_LDAP_GROUP_TYPE
     value: MemberDNGroupType(name_attr="cn",member_attr="member")
   - setting: AUTH_LDAP_BIND_PASSWORD
@@ -26,19 +26,19 @@ spec:
   - setting: AUTH_LDAP_USER_FLAGS_BY_GROUP
     value:
       is_superuser:
-      - CN=LinuxTeam,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+      - CN=LinuxTeam,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=domain,DC=org,DC=il
   - setting: AUTH_LDAP_ORGANIZATION_MAP
     value:
       Linux Team:
         admins: CN=LinuxTeam,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod
-          Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+          Environments,OU=Organization-Root,DC=domain,DC=org,DC=il
   garbage_collect_secrets: false
   image_pull_policy: IfNotPresent
   ingress_type: Route
   ipv6_disabled: false
   postgres_configuration_secret: aap-controller-postgres-configuration 
   secret_key_secret: aap-controller-secret-key 
-  ldap_cacert_secret: ca-bundle-custom-certs-maccabi
+  ldap_cacert_secret: ca-bundle-custom-certs-
   ldap_password_secret: aap-ldap-password
   loadbalancer_ip: ""
   loadbalancer_port: 80

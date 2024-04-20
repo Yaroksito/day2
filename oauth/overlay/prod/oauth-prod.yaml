@@ -19,13 +19,13 @@ spec:
         preferredUsername:
         - sAMAccountName
       bindDN: CN=ocp-p-ldap,OU=OpenshiftProd,OU=Sensitive Accounts,OU=Global Prod
-          Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+          Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
       bindPassword:
         name: ldap-secret
       ca:
         name: ca-config-map
       insecure: false
-      url: ldaps://mac.org.il:636/dc=mac,dc=org,dc=il?sAMAccountName
+      url: ldaps://oranization.domain:636/dc=mac,dc=org,dc=il?sAMAccountName
     mappingMethod: claim
     name: ldapidp
     type: LDAP

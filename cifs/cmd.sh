@@ -9,7 +9,7 @@ oc create secret generic cifs-csi-credentials --from-literal=username=<username>
 oc adm policy add-scc-to-user -z csi-smb-node-sa privileged
 
 
-oc -n cifs-csi-demo  create secret generic cifs-csi-creds --from-literal=username=WotchQASA\@mac.org.il --from-literal=password='5@#LIZ$PviY6'
+oc -n cifs-csi-demo  create secret generic cifs-csi-creds --from-literal=username=WotchQASA\@oranization.domain --from-literal=password='5@#LIZ$PviY6'
 oc -n cifs-csi-demo  create secret generic cifs-csi-creds --from-literal=username=WotchQASA --from-literal=password=5AHLIZDPviY6
 
 

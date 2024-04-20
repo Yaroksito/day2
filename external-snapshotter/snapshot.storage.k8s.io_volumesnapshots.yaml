@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
-    api-approved.kubernetes.io: "https://azure-devops/tfs/Maccabi/OCP-Cluster-Mgm/_git/OCP-Cluster-Mgm/external-snapshotter/"
+    api-approved.kubernetes.io: "https://azure-devops/tfs/Organization/OCP-Cluster-Mgm/_git/OCP-Cluster-Mgm/external-snapshotter/"
   creationTimestamp: null
   name: volumesnapshots.snapshot.storage.k8s.io
 spec:

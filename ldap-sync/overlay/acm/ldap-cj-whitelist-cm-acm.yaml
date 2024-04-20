@@ -7,12 +7,12 @@ metadata:
     app: cronjob-ldap-group-sync
 data:
   whitelist.txt: |
-    CN=ocp-acm-admins,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
-    CN=ocp-acm-gitops-infra-admin,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
-    CN=ocp-acm-gitops-view,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
-    CN=ocp-acm-shobteam,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
-    CN=ocp-acm-subadmin,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
-    CN=ocp-AdvDevTeam,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
-    CN=ocp-WotchTeam,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+    CN=ocp-acm-admins,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
+    CN=ocp-acm-gitops-infra-admin,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
+    CN=ocp-acm-gitops-view,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
+    CN=ocp-acm-shobteam,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
+    CN=ocp-acm-subadmin,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
+    CN=ocp-AdvDevTeam,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
+    CN=ocp-WotchTeam,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
     
 

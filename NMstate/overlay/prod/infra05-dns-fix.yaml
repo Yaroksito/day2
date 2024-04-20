@@ -4,13 +4,13 @@ metadata:
  name: infra05-dns-fix 
 spec: 
   nodeSelector: 
-    kubernetes.io/hostname: ocp-p-inf05.ocplanprod.mac.org.il
+    kubernetes.io/hostname: ocp-p-inf05.ocplanprod.oranization.domain
   desiredState:
     dns-resolver:
       config:
         search:
-        - ocplanprod.mac.org.il
-        - mac.org.il
+        - ocplanprod.oranization.domain
+        - oranization.domain
         server:
         - 10.74.1.201
         - 10.74.1.204

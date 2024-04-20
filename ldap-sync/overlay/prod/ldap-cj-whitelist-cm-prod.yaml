@@ -7,6 +7,6 @@ metadata:
     app: cronjob-ldap-group-sync
 data:
   whitelist.txt: |
-    CN=ocp-p-admins,OU=prod,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
-    CN=ocp-p-online,OU=prod,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
-    CN=ocp-p-advdev,OU=prod,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Maccabi-Root,DC=mac,DC=org,DC=il
+    CN=ocp-p-admins,OU=prod,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
+    CN=ocp-p-online,OU=prod,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
+    CN=ocp-p-advdev,OU=prod,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il

@@ -1,7 +1,7 @@
 apiVersion: dynatrace.com/v1beta1
 kind: DynaKube
 metadata:
-  name: maccabiopenshift
+  name: organizationopenshift
   namespace: dynatrace
 spec:
   activeGate:
@@ -15,7 +15,7 @@ spec:
       requests:
         cpu: 500m
         memory: 512Mi
-  apiUrl: https://dynatrace.mac.org.il/e/62422652-0e8a-44f7-8c77-defe8a0c3621/api
+  apiUrl: https://dynatrace.oranization.domain/e/62422652-0e8a-44f7-8c77-defe8a0c3621/api
   oneAgent:
     classicFullStack:
       env:

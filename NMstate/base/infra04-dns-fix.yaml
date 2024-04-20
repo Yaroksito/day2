@@ -6,13 +6,13 @@ metadata:
   name: infra04-dns-fix 
 spec: 
   nodeSelector: 
-    kubernetes.io/hostname: ocp-t-inf04.ocplantest.mac.org.il
+    kubernetes.io/hostname: ocp-t-inf04.ocplantest.oranization.domain
   desiredState:
     dns-resolver:
       config:
         search:
-        - ocplantest.mac.org.il
-        - mac.org.il
+        - ocplantest.oranization.domain
+        - oranization.domain
         server:
         - 10.74.1.201
         - 10.74.1.204

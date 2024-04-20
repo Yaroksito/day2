@@ -76,7 +76,7 @@ status:
     reason: CanaryChecksSucceeding
     status: "True"
     type: CanaryChecksSucceeding
-  domain: apps.ocplantest.mac.org.il
+  domain: apps.ocplantest.oranization.domain
   endpointPublishingStrategy:
     hostNetwork:
       protocol: TCP
