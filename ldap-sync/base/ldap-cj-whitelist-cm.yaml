@@ -7,8 +7,8 @@ metadata:
     app: cronjob-ldap-group-sync
 data:
   whitelist.txt: |
-    CN=ocp-d-admins,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
-    CN=ocp-d-edit,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
-    CN=ocp-d-readonly,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
-    CN=ocp-d-workshop,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
-    CN=ocp-d-mobile,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
+    CN=ocp-d-admins,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=organization,DC=org,DC=il
+    CN=ocp-d-edit,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=organization,DC=org,DC=il
+    CN=ocp-d-readonly,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=organization,DC=org,DC=il
+    CN=ocp-d-workshop,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=organization,DC=org,DC=il
+    CN=ocp-d-mobile,OU=dev,OU=Openshift,OU=Security,OU=Groups,OU=Global Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=organization,DC=org,DC=il

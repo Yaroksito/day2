@@ -9,8 +9,8 @@ oc create secret generic cifs-csi-credentials --from-literal=username=<username>
 oc adm policy add-scc-to-user -z csi-smb-node-sa privileged
 
 
-oc -n cifs-csi-demo  create secret generic cifs-csi-creds --from-literal=username=WotchQASA\@oranization.domain --from-literal=password='5@#LIZ$PviY6'
-oc -n cifs-csi-demo  create secret generic cifs-csi-creds --from-literal=username=WotchQASA --from-literal=password=5AHLIZDPviY6
+oc -n cifs-csi-demo  create secret generic cifs-csi-creds --from-literal=username='my-user'\@oranization.domain --from-literal=password='mypass'
+oc -n cifs-csi-demo  create secret generic cifs-csi-creds --from-literal=username='my-user' --from-literal=password='maypass'
 
 
 # New csidrivers.storage.k8s.io has deployed
@@ -23,7 +23,7 @@ oc create -f csi-smb-node-privileged-affinity.yaml
 oc apply -f csi-smb-node-012024.yaml
 
 # Create secret creds to access share in the cifs-csi-demo project
-oc -n cifs-csi-demo  create secret generic cifs-csi-creds --from-literal=username=WotchQASA --from-literal=password=5AHLIZDPviY6
+oc -n cifs-csi-demo  create secret generic cifs-csi-creds --from-literal=username=myuser --from-literal=password=mypass
 
 # Create PVC to store the files from the share
 

@@ -1,8 +1,8 @@
 - op: replace 
   path: /spec/identityProviders/0/ldap/bindDN #resouirce we want to change
-  value: CN=ocp-t-ldap,OU=OpenShiftNP,OU=Sensitive Accounts,OU=Non-Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il
+  value: CN=ocp-t-ldap,OU=OpenShiftNP,OU=Sensitive Accounts,OU=Non-Prod Environments,OU=Organization-Root,DC=organization,DC=org,DC=il
 
 - op: replace
   path: /spec/identityProviders/0/ldap/url
-  value: ldaps://oranization.domain:636/dc=mac,dc=org,dc=il?sAMAccountName?sub?(&(objectClass=user)(memberOf=CN=openshiftusers-test,OU=test,OU=Openshift,OU=Security,OU=Groups,OU=Global
-        Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=mac,DC=org,DC=il))
+  value: ldaps://oranization.domain:636/dc=organization,dc=org,dc=il?sAMAccountName?sub?(&(objectClass=user)(memberOf=CN=openshiftusers-test,OU=test,OU=Openshift,OU=Security,OU=Groups,OU=Global
+        Prod Resources,OU=Prod Environments,OU=Organization-Root,DC=organization,DC=org,DC=il))

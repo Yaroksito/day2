@@ -14,5 +14,5 @@ spec:
         - ocplantest.oranization.domain
         - oranization.domain
         server:
-        - 10.74.1.201
+        - 10.10.10.8
         - 10.74.1.204
